@@ -10,6 +10,50 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2021_09_01_195129) do
+
+  create_table "genres", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "instruments", force: :cascade do |t|
+    t.string "name"
+    t.string "type"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "project_musicians", force: :cascade do |t|
+    t.integer "project_id"
+    t.integer "musician_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "projects", force: :cascade do |t|
+    t.integer "contractor_id"
+    t.string "title"
+    t.text "description"
+    t.string "location"
+    t.datetime "date_time"
+    t.float "pay_rate"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "genre_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "type"
+    t.string "name"
+    t.string "email"
+    t.string "password_digest"
+    t.text "bio"
+    t.float "money"
+    t.integer "instrument_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
 end
