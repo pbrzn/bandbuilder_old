@@ -1,7 +1,6 @@
 class Musician < User
   belongs_to :instrument
-  has_many :project_musicians
-  has_many :projects, through: :project_musicians
+  has_many :projects, through: :instruments
   has_many :contractors, through: :projects
   has_many :genres, through: :projects
 
